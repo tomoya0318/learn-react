@@ -1,0 +1,19 @@
+version: '3.9'
+
+volumes:
+  node_modules:
+services:
+  learn-react:
+    build:
+      context: ./app
+    tty: true
+    container_name: front
+    volumes:
+      - type: bind
+        source: ./app
+        target: /works
+      - type: volume
+        source: node_modules
+        target: /works/node_modules
+    ports:
+      - '3000:3000'
