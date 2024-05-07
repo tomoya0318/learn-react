@@ -1,16 +1,6 @@
 import useTodoForm from "./hooks/useTodoForm";
 const UpdateForm = ({ createTodo }) => {
-  const { enteredTodo, setEnteredTodo, addTodo, error, setError  } = useTodoForm({ createTodo });
-  
-  const handleChnage = (e) =>{
-    const value = e.target.value;
-    setEnteredTodo(value);
-    if (e.target.value === '') {
-      setError('This field cannot be empty.');
-    } else {
-        setError('');
-    }
-  };
+  const { enteredTodo, setEnteredTodo, addTodo, error } = useTodoForm({ createTodo });
 
   return (
     <div>
@@ -18,7 +8,7 @@ const UpdateForm = ({ createTodo }) => {
         <input
           type="text"
           value={enteredTodo}
-          onChange={handleChnage}
+          onChange={(e) => setEnteredTodo(e.target.value)}
         />
         <button>追加</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}

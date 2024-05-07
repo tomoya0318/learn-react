@@ -16,9 +16,10 @@ const useTodoForm = ({ createTodo }) => {
             }
             createTodo(newTodo);
             setEnteredTodo("");
+            setError("");
         }
     }
-    return { enteredTodo, setEnteredTodo, addTodo, error, setError };
+    return { enteredTodo, setEnteredTodo, addTodo, error };
 
 };
 
