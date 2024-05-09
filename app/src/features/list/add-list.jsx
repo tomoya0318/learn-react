@@ -1,7 +1,7 @@
-const AddList = ({todos, deleteTodo}) => {
+const AddList = ({ todos, deleteTodo }) => {
     return (
         <div>
-            {todos.map(todo => {
+            {todos.map((todo) => {
                 return (
                     <div key={todo.id}>
                         <button onClick={() => deleteTodo(todo.id)}>完了</button>
@@ -10,7 +10,7 @@ const AddList = ({todos, deleteTodo}) => {
                 )
             })}
         </div>
-    );
+    )
 }
 
-export default AddList;
+export default AddList
