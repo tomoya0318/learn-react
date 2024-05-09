@@ -10,3 +10,6 @@ down:
 
 exec:
 	@docker exec -it front sh
+
+format:
+	@docker exec front yarn format
