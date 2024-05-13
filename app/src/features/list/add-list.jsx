@@ -1,4 +1,4 @@
-const AddList = ({ todos, deleteTodo }) => {
+export const AddList = ({ todos, deleteTodo }) => {
     return (
         <div>
             {todos.map((todo) => {
@@ -6,11 +6,10 @@ const AddList = ({ todos, deleteTodo }) => {
                     <div key={todo.id}>
                         <button onClick={() => deleteTodo(todo.id)}>完了</button>
                         <span>{todo.content}</span>
+                        <span>{todo.time}</span>
                     </div>
                 )
             })}
         </div>
     )
-}
-
-export default AddList
+};

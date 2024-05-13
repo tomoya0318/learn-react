@@ -1,20 +1,23 @@
-import AddList from "../list/add-list"
-import UpdateForm from "../form/update-form"
-import useTodos from "./hooks/use-todo"
+import { AddList } from "../list"
+import { UpdateForm } from "../form"
+import { useTodos } from "./hooks"
 
 const ManageTodo = () => {
     const todosList = [
         {
             id: 1,
             content: "店予約する",
+            time: "0:00",
         },
         {
             id: 2,
             content: "卵買う",
+            time: "0:00",
         },
         {
             id: 3,
             content: "郵便出す",
+            time: "0:00",
         },
     ]
 

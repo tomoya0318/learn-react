@@ -1,6 +1,6 @@
-import useTimeBox from "./hooks/use-time-box"
+import { useTimeBox } from "./hooks"
 
-const ProvideTime = () => {
+export const ProvideTime = () => {
     const { hour, minute, handleHourChange, handleMinuteChange } = useTimeBox()
     // 0から23の時刻オプションを生成
     const hourOptions = Array.from({ length: 24 }, (_, i) => (
@@ -28,6 +28,4 @@ const ProvideTime = () => {
             <span>分</span>
         </>
     )
-}
-
-export default ProvideTime
+};

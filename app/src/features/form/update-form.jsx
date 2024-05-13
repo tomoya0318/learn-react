@@ -1,7 +1,7 @@
-import useTodoForm from "./hooks/use-todo-form"
-import ProvideTime from "../time/provide-time"
+import { useTodoForm } from "./hooks"
+import { ProvideTime } from "../time"
 
-const UpdateForm = ({ createTodo }) => {
+export const UpdateForm = ({ createTodo }) => {
     const { enteredTodo, setEnteredTodo, addTodo, error } = useTodoForm({
         createTodo,
     })
@@ -25,6 +25,4 @@ const UpdateForm = ({ createTodo }) => {
             </form>
         </>
     )
-}
-
-export default UpdateForm
+};

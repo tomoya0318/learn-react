@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useTodos = (initialTodos) => {
+export const useTodos = (initialTodos) => {
     const [todos, setTodos] = useState(initialTodos)
 
     const deleteTodo = (id) => {
@@ -13,6 +13,4 @@ const useTodos = (initialTodos) => {
     }
 
     return { todos, setTodos, deleteTodo, createTodo }
-}
-
-export default useTodos
+};

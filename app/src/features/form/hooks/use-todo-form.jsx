@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useTodoForm = ({ createTodo }) => {
+export const useTodoForm = ({ createTodo }) => {
     const [enteredTodo, setEnteredTodo] = useState("")
     const [error, setError] = useState("")
 
@@ -20,6 +20,4 @@ const useTodoForm = ({ createTodo }) => {
         }
     }
     return { enteredTodo, setEnteredTodo, addTodo, error }
-}
-
-export default useTodoForm
+};

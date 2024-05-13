@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useTimeBox = () => {
+export const useTimeBox = () => {
     const [hour, setHour] = useState("0")
     const [minute, setMinute] = useState("00")
 
@@ -15,6 +15,4 @@ const useTimeBox = () => {
     }
 
     return { hour, minute, handleHourChange, handleMinuteChange }
-}
-
-export default useTimeBox
+};
