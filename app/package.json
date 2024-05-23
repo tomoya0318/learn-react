@@ -11,20 +11,28 @@
         "preview": "npx vite preview"
     },
     "dependencies": {
+        "@types/jest": "^29.5.12",
+        "@types/node": "^20.12.12",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "typescript": "^5.4.5"
     },
     "devDependencies": {
-        "@types/react": "^18.2.66",
-        "@types/react-dom": "^18.2.22",
+        "@types/react": "^18.3.2",
+        "@types/react-dom": "^18.3.0",
         "@vitejs/plugin-react-swc": "^3.5.0",
+        "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
         "eslint": "^8.57.0",
         "eslint-plugin-react": "^7.34.1",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.6",
         "prettier": "^3.2.5",
+        "rimraf": "^5.0.7",
+        "sirv-cli": "^2.0.2",
         "tailwindcss": "^3.4.3",
-        "vite": "^5.2.0"
+        "ttypescript": "^1.5.15",
+        "vite": "^5.2.0",
+        "yarn-run-all": "^3.1.1"
     },
     "packageManager": "yarn@4.1.1"
 }

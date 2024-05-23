@@ -1,4 +1,4 @@
-import ManageTodo from "./features/todo/manage-todo.jsx"
+import ManageTodo from "./features/todo/manage-todo"
 const App = () => {
     return (
         <>

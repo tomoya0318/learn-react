@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx", // JSXサポートを有効にする
+    "jsxImportSource": "react", // ReactのためのJSXインポートソースを指定する
+    // 既存のオプションがある場合は、それらも保持してください
+    "target": "es5", // 例として、他のコンパイラオプション
+    "module": "commonjs", // 例として、他のコンパイラオプション
+    "strict": true, // 例として、他のコンパイラオプション
+    "esModuleInterop": true, // 例として、他のコンパイラオプション
+    "skipLibCheck": true, // 例として、他のコンパイラオプション
+    "forceConsistentCasingInFileNames": true // 例として、他のコンパイラオプション
+  },
+  "include": ["src"] // プロジェクトに含めるファイルのパスを指定
+}
