@@ -1,9 +1,10 @@
-import ManageTodo from "./features/todo/manage-todo"
-const App = () => {
+import Todo from "./components/Todo"
+
+const App: React.FC = () => {
     return (
         <>
             <h2>Reminder</h2>
-            <ManageTodo />
+            <Todo />
         </>
     )
 }
