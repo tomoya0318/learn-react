@@ -5,7 +5,7 @@ type TaskListProps = {
     deleteTodo: (id: number) => void
 }
 
-const List: React.FC<TaskListProps> = ({ todos, deleteTodo }) => {
+export const List: React.FC<TaskListProps> = ({ todos, deleteTodo }) => {
     const complete = (id: number) => {
         deleteTodo(id)
     }
@@ -16,11 +16,10 @@ const List: React.FC<TaskListProps> = ({ todos, deleteTodo }) => {
                     <div key={todo.id}>
                         <button onClick={() => complete(todo.id)}>完了</button>
                         <span>{todo.content}</span>
+                        <span>{todo.time}</span>
                     </div>
                 )
             })}
         </div>
     );
-}
-
-export default List;
+};
