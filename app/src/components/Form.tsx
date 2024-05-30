@@ -21,6 +21,16 @@ export const Form: React.FC<{createTodo:( todo: InformTodo ) => void}> = ({ crea
       return;
     }
 
+    if (!time){
+      toast({
+        title:"時間を設定してください",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+      return;
+    }
+
     const newTodo = {
       id: Math.floor(Math.random() * 1e5),
       content: enteredTodo,

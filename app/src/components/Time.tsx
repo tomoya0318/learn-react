@@ -1,36 +1,45 @@
 import { useState, useEffect } from "react";
+import { useToast } from "@chakra-ui/react"; 
 
 export const Time: React.FC<{setTime: (time: string) => void}> = ({ setTime }) => {
-    const [hour, setHour] = useState<number>(0);
-    const [minute, setMinute] = useState<number>(0);
+    const [hour, setHour] = useState<number|string>("-");
+    const [minute, setMinute] = useState<number|string>("-");
 
     useEffect(() => {
-        setTime(`${padZero(hour)}:${padZero(minute)}`);
+        if(hour !== "-" && minute !== "-"){
+            setTime(`${padZero(hour)}:${padZero(minute)}`);
+        }
     }, [hour, minute, setTime]);
     
     const handleHourChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const newHour = parseInt(e.target.value, 10);
+        const newHour = e.target.value === "-" ? "-" : parseInt(e.target.value, 10);
         setHour(newHour);
     };
 
     const handleMinuteChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const newMinute = parseInt(e.target.value, 10);
+        const newMinute = e.target.value === "-" ? "-" : parseInt(e.target.value, 10);
         setMinute(newMinute);
     };
 
-    const padZero = (num: number) => String(num).padStart(2, "0");
+    const padZero = (num: number|string) => String(num).padStart(2, "0");
 
-    const hourOptions = Array.from({ length: 24 }, (_, i) => (
-        <option key={i} value={i}>
-            {padZero(i)}
-        </option>
-    ));
+    const hourOptions = [
+        <option key="-" value="-">-</option>,
+        ...Array.from({ length: 24 }, (_, i) => (
+            <option key={i} value={i}>
+                {padZero(i)}
+            </option>
+        ))
+    ];
 
-    const minuteOptions = Array.from({ length: 60 }, (_, i) => (
-        <option key={i} value={i}>
-            {padZero(i)}
-        </option>
-    ));
+    const minuteOptions = [
+        <option key="-" value="-">-</option>,
+        ...Array.from({ length: 60 }, (_, i) => (
+            <option key={i} value={i}>
+                {padZero(i)}
+            </option>
+        ))
+    ];
 
     return (
         <>
