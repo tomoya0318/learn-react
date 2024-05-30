@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { HStack, Select, Text } from "@chakra-ui/react";
 
+const customSelectStyles = {
+    padding: 1,
+    variant: "outline",
+    border: "1px solid",
+    borderColor: "blue.100",
+    borderRadius: "md"
+};
+
 export const Time: React.FC<{ setTime: (time: string) => void }> = ({ setTime }) => {
     const [hour, setHour] = useState<number|string>("-");
     const [minute, setMinute] = useState<number|string>("-");
@@ -41,12 +49,7 @@ export const Time: React.FC<{ setTime: (time: string) => void }> = ({ setTime })
                 placeholder="-"
                 value={hour}
                 onChange={handleHourChange}
-                boxsize="lg"
-                padding={1}
-                variant="outline"
-                border="1px solid"
-                borderColor="blue.100"
-                borderRadius="md"
+                {...customSelectStyles}
             >
                 {hourOptions}
             </Select>
@@ -55,12 +58,7 @@ export const Time: React.FC<{ setTime: (time: string) => void }> = ({ setTime })
                 placeholder="-"
                 value={minute}
                 onChange={handleMinuteChange}
-                boxsize="lg"
-                padding={1}
-                variant="outline"
-                border="1px solid"
-                borderColor="blue.100"
-                borderRadius="md"
+                {...customSelectStyles}
             >
                 {minuteOptions}
             </Select>
