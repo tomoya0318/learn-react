@@ -1,13 +1,25 @@
 import React, { useState } from "react";
+import { useToast, HStack, Input, Button } from '@chakra-ui/react';
 import { InformTodo } from "./Todo";
 import { Time } from "./Time"; 
 
 export const Form: React.FC<{createTodo:( todo: InformTodo ) => void}> = ({ createTodo }) => {
   const [enteredTodo, setEnteredTodo] = useState<string>("");
-  const [time, setTime] = useState<string>("0:00");
-
+  const [time, setTime] = useState<string>("");
+  const toast = useToast();
+  
   const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!enteredTodo){
+      toast({
+        title: "新しいタスクを入力してください",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+      return;
+    }
 
     const newTodo = {
       id: Math.floor(Math.random() * 1e5),
@@ -22,13 +34,28 @@ export const Form: React.FC<{createTodo:( todo: InformTodo ) => void}> = ({ crea
   return (
     <div>
       <form onSubmit={addTodo}>
-        <input
-          type="text"
-          value={enteredTodo}
-          onChange={(e) => setEnteredTodo(e.target.value)}
-        />
-        <Time setTime = {setTime}/>
-        <button>追加</button>
+        <HStack>
+          <Input
+            placeholder="新しいタスク"
+            _placeholder={{ opacity: "0.3", color: "gray.500"}}
+            size="lg"
+            padding={3}
+            variant="flushed"
+            value={enteredTodo}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setEnteredTodo(e.target.value)}
+          />
+          <Time setTime = {setTime}/>
+          <Button
+            colorScheme="blue"
+            size="md"
+            bgColor="white"
+            variant="outline"
+            px={7}
+            type="submit"
+          >
+            追加
+          </Button>
+        </HStack>
       </form>
     </div>
   );

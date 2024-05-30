@@ -1,14 +1,23 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx", // JSXサポートを有効にする
-    "jsxImportSource": "react", // ReactのためのJSXインポートソースを指定する
-    // 既存のオプションがある場合は、それらも保持してください
-    "target": "es2019", // 例として、他のコンパイラオプション
-    "module": "commonjs", // 例として、他のコンパイラオプション
-    "strict": true, // 例として、他のコンパイラオプション
-    "esModuleInterop": true, // 例として、他のコンパイラオプション
-    "skipLibCheck": true, // 例として、他のコンパイラオプション
-    "forceConsistentCasingInFileNames": true // 例として、他のコンパイラオプション
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "incremental": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"] // プロジェクトに含めるファイルのパスを指定
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
