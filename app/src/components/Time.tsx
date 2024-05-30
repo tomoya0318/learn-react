@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useToast } from "@chakra-ui/react"; 
+import React, { useState, useEffect } from "react";
+import { HStack, Select, Text } from "@chakra-ui/react";
 
-export const Time: React.FC<{setTime: (time: string) => void}> = ({ setTime }) => {
+export const Time: React.FC<{ setTime: (time: string) => void }> = ({ setTime }) => {
     const [hour, setHour] = useState<number|string>("-");
     const [minute, setMinute] = useState<number|string>("-");
 
     useEffect(() => {
-        if(hour !== "-" && minute !== "-"){
+        if (hour !== "-" && minute !== "-") {
             setTime(`${padZero(hour)}:${padZero(minute)}`);
         }
     }, [hour, minute, setTime]);
@@ -23,34 +23,48 @@ export const Time: React.FC<{setTime: (time: string) => void}> = ({ setTime }) =
 
     const padZero = (num: number|string) => String(num).padStart(2, "0");
 
-    const hourOptions = [
-        <option key="-" value="-">-</option>,
-        ...Array.from({ length: 24 }, (_, i) => (
-            <option key={i} value={i}>
-                {padZero(i)}
-            </option>
-        ))
-    ];
+    const hourOptions = Array.from({ length: 24 }, (_, i) => (
+        <option key={i} value={i}>
+            {padZero(i)}
+        </option>
+    ));
 
-    const minuteOptions = [
-        <option key="-" value="-">-</option>,
-        ...Array.from({ length: 60 }, (_, i) => (
-            <option key={i} value={i}>
-                {padZero(i)}
-            </option>
-        ))
-    ];
+    const minuteOptions = Array.from({ length: 60 }, (_, i) => (
+        <option key={i} value={i}>
+            {padZero(i)}
+        </option>
+    ));
 
     return (
-        <>
-            <select value={hour} onChange={handleHourChange}>
+        <HStack>
+            <Select 
+                placeholder="-"
+                value={hour}
+                onChange={handleHourChange}
+                boxsize="lg"
+                padding={1}
+                variant="outline"
+                border="1px solid"
+                borderColor="blue.100"
+                borderRadius="md"
+            >
                 {hourOptions}
-            </select>
-            <span>時</span>
-            <select value={minute} onChange={handleMinuteChange}>
+            </Select>
+            <Text>時</Text>
+            <Select
+                placeholder="-"
+                value={minute}
+                onChange={handleMinuteChange}
+                boxsize="lg"
+                padding={1}
+                variant="outline"
+                border="1px solid"
+                borderColor="blue.100"
+                borderRadius="md"
+            >
                 {minuteOptions}
-            </select>
-            <span>分</span>
-        </>
+            </Select>
+            <Text>分</Text>
+        </HStack>
     );
-}
+};

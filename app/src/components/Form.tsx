@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useToast, HStack, Input, Button } from '@chakra-ui/react';
+import { useToast, VStack, Input, Button, Select } from '@chakra-ui/react';
 import { InformTodo } from "./Todo";
 import { Time } from "./Time"; 
 
@@ -40,17 +40,21 @@ export const Form: React.FC<{createTodo:( todo: InformTodo ) => void}> = ({ crea
     createTodo(newTodo);
 
     setEnteredTodo("");
+    setTime("");
   };
   return (
     <div>
       <form onSubmit={addTodo}>
-        <HStack>
+        <VStack>
           <Input
             placeholder="新しいタスク"
             _placeholder={{ opacity: "0.3", color: "gray.500"}}
             size="lg"
             padding={3}
-            variant="flushed"
+            variant="outline"
+            border="1px solid"
+            borderColor="blue.100"
+            borderRadius="md"
             value={enteredTodo}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setEnteredTodo(e.target.value)}
           />
@@ -65,7 +69,7 @@ export const Form: React.FC<{createTodo:( todo: InformTodo ) => void}> = ({ crea
           >
             追加
           </Button>
-        </HStack>
+        </VStack>
       </form>
     </div>
   );
